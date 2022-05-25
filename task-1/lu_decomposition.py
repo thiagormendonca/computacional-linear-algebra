@@ -1,4 +1,4 @@
-def lu(a):
+def decomposition(a):
     for k in range(len(a)):
         for i in range(k + 1, len(a)):
             a[k][i] = a[k][i]/a[k][k]
@@ -31,3 +31,22 @@ def x(u, y):
 
     return y
 
+def lu_decomposition(a, b, idet):
+    lu = decomposition(a)
+    matrix_det = None
+
+    if (idet > 0):
+        matrix_det = det(lu)
+
+    y_vec = y(lu, b)
+    x_vec = x(lu, y_vec)
+
+    return { 'Resultado': x_vec, 'Determinante': matrix_det }
+
+def det(a):
+    result = 1
+
+    for i in range(len(a)):
+        result = result * a[i][i]
+
+    return result
