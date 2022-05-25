@@ -1,4 +1,7 @@
-def jacobi(a, b, x0, tol):
+import numpy as np
+
+
+def iteration(a, b, x0, tol):
     x1 = b.copy()
 
     for i in range(len(a)):
@@ -22,3 +25,10 @@ def euclidian_norm(x):
         norm += x[i] ** 2
 
     return norm ** (1/2)
+
+def jacobi(a, b, tol):
+    x0 = np.array([1] * len(b))
+
+    result = iteration(a, b, x0, tol)
+
+    return { 'Resultado': result }

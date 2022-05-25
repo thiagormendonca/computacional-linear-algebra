@@ -7,7 +7,7 @@ def power_method(a, x0, lamb0, tol):
         for j in range(len(a)):
             y[i] += a[j][i] * x0[j]
 
-    lamb1 = y[0]
+    lamb1 = find_greatest(y)
     y = y / lamb1
 
     r = abs(lamb1 - lamb0) / abs(lamb1)
@@ -16,3 +16,13 @@ def power_method(a, x0, lamb0, tol):
         return (lamb1, y)
 
     return power_method(a, y, lamb1, tol)
+
+def find_greatest(a):
+    greatest = float('-inf')
+
+    for i in range(len(a)):
+        if (a[i] > greatest):
+            greatest = a[i]
+
+    return greatest
+
