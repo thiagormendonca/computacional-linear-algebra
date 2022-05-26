@@ -33,13 +33,5 @@ def cholesky_decomposition(a, b, idet):
     return {'Resultado': x_vec, 'Determinante': matrix_det}
 
 
-a = [[1,0.2,0.4],[0.2,1,0.5],[0.4,0.5,1]]
-b = [[0.6, -0.3, -0.6]]
-
-cholesky_decomposition(pd.DataFrame(a), np.array(b), 1)
-df_cholesky = pd.DataFrame(a)
-print(df_cholesky)
-
-
 
 

@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def iteration(a, b, x0, tol):
+def iteration(a, b, x0, tol, it = 0):
     x1 = b.copy()
 
     for i in range(len(a)):
@@ -13,9 +13,9 @@ def iteration(a, b, x0, tol):
     r = euclidian_norm(x1 - x0) / euclidian_norm(x1)
 
     if (r <= tol):
-        return x1
+        return x1, it
     
-    return jacobi(a, b, x1, tol)
+    return iteration(a, b, x1, tol, it + 1)
 
 
 def euclidian_norm(x):
@@ -29,6 +29,6 @@ def euclidian_norm(x):
 def jacobi(a, b, tol):
     x0 = np.array([1] * len(b))
 
-    result = iteration(a, b, x0, tol)
+    result, it = iteration(a, b, x0, tol)
 
-    return { 'Resultado': result }
+    return { 'Resultado': result, 'Número de iterações': it }
