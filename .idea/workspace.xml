@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2518906d-8f16-4f1e-a54c-ff03c1db1450" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/task-1/cholesky_decomposition.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/cholesky_decomposition.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-1/lu_decomposition.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/lu_decomposition.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-1/teste.py" beforeDir="false" />
     </list>
