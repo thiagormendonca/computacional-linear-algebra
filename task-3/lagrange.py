@@ -14,4 +14,4 @@ def lagrange(x, y, coord):
     for i in range(len(phi)):
         result += phi[i] * y[i]
 
-    return result
+    return { 'Valor estimado': result }
