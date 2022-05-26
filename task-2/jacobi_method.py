@@ -1,11 +1,24 @@
 import numpy as np
 import pandas as pd
 
+
+def iteration(a, x, tol, it = 0):
+    a = pd.DataFrame.to_numpy(a)
+    p = generate_p(a)
+    a = np.dot(np.matrix.transpose(p), a).dot(p)
+    x = np.dot(x, p)
+
+    i, j = get_max_indexes(a)
+    r = a[j][i]
+
+    if (r <= tol):
+        return np.array(np.diagonal(a)), pd.DataFrame(x), it
+
+    return iteration(a, tol, x, it + 1)
+
 def generate_p(a):
     # Get max indexes
-    indexes = get_max_indexes(a)
-    i = indexes[0]
-    j = indexes[1]
+    i, j = get_max_indexes(a)
 
     # Define theta
     th = theta(a, i, j)
@@ -19,32 +32,43 @@ def generate_p(a):
     return p
 
 def get_max_indexes(a):
-    indexes = [0, 1]
+    indexes = (0, 1)
     for i in range(len(a)):
         for j in range(len(a[i])):
             if i == j: continue
             if abs(a[i][j]) > abs(a[indexes[0]][indexes[1]]):
-                indexes = [i, j]
+                indexes = (i, j)
     return indexes
 
 def theta(a, i, j):
     if a[i][i] != a[j][j]:
-        return (np.arctan((2 * a[i][j]) / (a[i][i] - a[j][j]))) / 2
+        return (np.arctan((2 * a[j][i]) / (a[i][i] - a[j][j]))) / 2
     else:
         return np.pi / 4
 
+def det(a):
+    p = 1
+    for eigenvalue in a:
+        p *= eigenvalue
 
-def jacobi_method(a, tol, x=None):
-    if x is None: x = np.identity(len(a))
+    return p
 
-    p = generate_p(a)
-    a = np.dot(np.matrix.transpose(p), a).dot(p)
-    x = np.dot(x, p)
+def is_symmetric(a):
+    a_t = np.transpose(a)
+    return np.array_equal(a, a_t)
 
-    indexes = get_max_indexes(a)
-    r = a[indexes[0]][indexes[1]]
+def jacobi_method(a, tol, idet):
+    if not (is_symmetric(pd.DataFrame.to_numpy(a))):
+        return { 'Error': 'matrix is not symmetric' }
 
-    if (r <= tol):
-        return { 'Autovalores': np.diagonal(a), 'Autovetores': x }
+    x0 = np.identity(len(a))
+    matrix_det = None
 
-    return jacobi_method(a, tol, x)
+    lamb, x, it = iteration(a, x0, tol)
+
+    if (idet > 0):
+        matrix_det = det(lamb)
+
+    return {'Autovalor': lamb, 'Autovetor': x, 'Número de iterações': it, 'Determinante': matrix_det}
+
+

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from lu_decomposition import y, x, det
+from lu_decomposition import det
 
 def decomposition(a):
     for i in range(len(a)):
@@ -20,27 +20,51 @@ def decomposition(a):
 
     return a
 
-# Checar se A for uma matriz simétrica positiva definida é possível
+def is_pos_def(x):
+    return np.all(np.linalg.eigvals(x) > 0)
+
+def forward_sub(l, b):
+    for i in range(len(l)):
+        sum = 0
+        for j in range(i):
+            sum += l[i][j] * b[j]
+        b[i] = (b[i] - sum) / l[i][i]
+
+    return b
+
+def forward_sub(l, b):
+    for i in range(len(l)):
+        sum = 0
+        for j in range(i):
+            sum += l[i][j] * b[j]
+        b[i] = (b[i] - sum) / l[i][i]
+
+    return b
+
+def retro_sub(u, y):
+    for i in range(len(u) - 1, -1, -1):
+        sum = 0
+        for j in range(i + 1, len(u)):
+            sum += u[i][j] * y[j]
+        y[i] = (y[i] - sum) / u[i][i]
+
+    return y
+
 def cholesky_decomposition(a, b, idet):
+    if not (is_pos_def(pd.DataFrame.to_numpy(a))):
+        return { 'Error': 'Matrix is not positive definite' }
+
     lu = decomposition(a)
 
-    y_vec = y(pd.DataFrame(np.tril(lu)), b)
-    x_vec = x(pd.DataFrame(np.transpose(np.tril(lu))), y_vec)
+    y_vec = forward_sub(np.tril(pd.DataFrame.to_numpy(lu)), b)
+    x_vec = retro_sub((np.transpose(np.tril(pd.DataFrame.to_numpy(lu)))), y_vec)
 
     if (idet > 0):
         matrix_det = det(lu)
 
-    return {'Resultado': x_vec, 'Determinante': matrix_det}
+    return {'Resultado': np.array(x_vec), 'Determinante': matrix_det}
 
 
-<<<<<<< HEAD
-a = [[1,0.2,0.4],[0.2,1,0.5],[0.4,0.5,1]]
-b = [0.6, -0.3, -0.6]
 
-print(cholesky_decomposition(pd.DataFrame(a), np.array(b), 1)['Resultado'])
-
-
-=======
->>>>>>> d554ce7ecbd5ca559864b01a7413365c6dc439f3
 
 

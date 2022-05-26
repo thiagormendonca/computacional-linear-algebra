@@ -27,7 +27,7 @@ def euclidian_norm(x):
     return norm ** (1/2)
 
 def jacobi(a, b, tol):
-    x0 = np.array([1] * len(b))
+    x0 = np.array([1.] * len(b))
 
     result, it = iteration(a, b, x0, tol)
 

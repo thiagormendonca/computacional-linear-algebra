@@ -1,20 +1,24 @@
-def gauss_seidel(a, b, x0, tol):
-    x1 =x0.copy()
+import numpy as np
+import pandas as pd
+
+
+def iteration(a, b, x0, tol, it=0):
+    x1 = x0.copy()
 
     for i in range(len(a)):
         sum = 0
         for j in range(i):
-            sum += a[i][j] * x1[j]
+            sum += a[j][i] * x1[j]
         for j in range(i + 1, len(a)):
-            sum += a[i][j] * x0[j]
+            sum += a[j][i] * x0[j]
         x1[i] = (b[i] - sum) / a[i][i]
 
-    r = euclidian_norm(dif(x0, x1)) / euclidian_norm(x1)
+    r = euclidian_norm(x1 - x0) / euclidian_norm(x1)
 
     if (r <= tol):
-        return x1
+        return x1, it
 
-    return gauss_seidel(a, b, x1, tol)
+    return iteration(a, b, x1, tol, it + 1)
 
 def dif(x0, x1):
     x = []
@@ -29,3 +33,11 @@ def euclidian_norm(x):
         norm += x[i] ** 2
 
     return norm ** (1/2)
+
+def gauss_seidel(a, b, tol):
+    x0 = np.array([1.] * len(b))
+
+    result, it = iteration(a, b, x0, tol)
+
+    return { 'Resultado': result, 'Número de iterações': it }
+
