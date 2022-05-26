@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
 
-#Se A for uma matriz simétrica positiva definida é possível
-def cholesky(a):
+from lu_decomposition import y, x, det
+
+def decomposition(a):
     for i in range(len(a)):
         sum = 0
         for k in range(i):
@@ -19,12 +20,26 @@ def cholesky(a):
 
     return a
 
-a = [[1,0.2,0.4],[0.2,1,0.5],[0.4,0.5,1]]
-df = pd.DataFrame(np.array(a))
-print(df)
+# Checar se A for uma matriz simétrica positiva definida é possível
+def cholesky_decomposition(a, b, idet):
+    lu = decomposition(a)
 
-cholesky(a)
-df_cholesky = pd.DataFrame(np.array(a))
+    y_vec = y(lu, b)
+    x_vec = x(np.transpose(lu), y_vec)
+
+    if (idet > 0):
+        matrix_det = det(lu)
+
+    return {'Resultado': x_vec, 'Determinante': matrix_det}
+
+
+a = [[1,0.2,0.4],[0.2,1,0.5],[0.4,0.5,1]]
+b = [[0.6, -0.3, -0.6]]
+
+cholesky_decomposition(pd.DataFrame(a), np.array(b), 1)
+df_cholesky = pd.DataFrame(a)
 print(df_cholesky)
+
+
 
 
