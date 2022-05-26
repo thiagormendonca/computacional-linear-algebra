@@ -1,6 +1,4 @@
 import numpy as np
-import pandas as pd
-
 
 def iteration(a, b, x0, tol, it=0):
     x1 = x0.copy()
@@ -19,12 +17,6 @@ def iteration(a, b, x0, tol, it=0):
         return x1, it
 
     return iteration(a, b, x1, tol, it + 1)
-
-def dif(x0, x1):
-    x = []
-    for i in range(len(x0)):
-        x.append(x1[i] - x0[i])
-    return x
 
 def euclidian_norm(x):
     norm = 0
