@@ -45,9 +45,6 @@ def jacobi_method(a, tol, x=None):
     r = a[indexes[0]][indexes[1]]
 
     if (r <= tol):
-        return np.diagonal(a), x
+        return { 'Autovalores': np.diagonal(a), 'Autovetores': x }
 
     return jacobi_method(a, tol, x)
-
-a = [[1.0,0.2,0.0],[0.2,1.0,0.5],[0.0,0.5,1.0]]
-print(pd.DataFrame(jacobi_method(a, 0.01))[0])

@@ -37,9 +37,6 @@ def multilinear_regression(x_coords, y_coords, functions, x):
 
     return estimated_y
 
-print(multilinear_regression([1,2,3],[2,3.5,6.5],[["pow", 0],["pow", 1]], 7))
-#print(multilinear_regression([1,4,25],[],["sin","cos","sqrt", ["pow", 2]]))
-
 
 
 

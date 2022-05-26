@@ -29,9 +29,3 @@ def euclidian_norm(x):
         norm += x[i] ** 2
 
     return norm ** (1/2)
-
-a = [[3,-1,-1],[-1,3,-1],[-1,-1,3]]
-b = [1,2,1]
-x0 = [1.000,1.000,1.000]
-tol = 0.001
-print(gauss_seidel(a, b, x0, tol))

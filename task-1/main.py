@@ -7,18 +7,18 @@ from jacobi import jacobi
 from gauss_seidel import gauss_seidel
 
 
-matrix_A = pd.read_csv('./mat_A.dat', sep=r'\s{2,}', engine='python', header=None)
-vector_B = np.fromfile('./vet_B.dat', sep='\n')
+matrix_A = pd.read_csv('./task-1/mat_A.dat', sep=r'\s{2,}', engine='python', header=None)
+vector_B = np.fromfile('./task-1/vet_B.dat', sep='\n')
 
-icod = input('ICOD: ')
-idet = input('IDET: ')
+icod = int(input('ICOD: '))
+idet = int(input('IDET: '))
 tolm = float(input('TOLm: '))
 
 methods = {
-    1: lu_decomposition(matrix_A, vector_B, idet),
-    2: cholesky_decomposition(matrix_A, vector_B, idet),
-    3: jacobi(matrix_A, vector_B, tolm),
-    4: gauss_seidel(matrix_A, vector_B, tolm)
+    1: lambda: lu_decomposition(matrix_A, vector_B, idet),
+    2: lambda: cholesky_decomposition(matrix_A, vector_B, idet),
+    3: lambda: jacobi(matrix_A, vector_B, tolm),
+    4: lambda: gauss_seidel(matrix_A, vector_B, tolm)
 }
 
-print(methods[icod])
+print(methods[icod]())

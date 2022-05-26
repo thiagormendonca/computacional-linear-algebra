@@ -33,11 +33,14 @@ def cholesky_decomposition(a, b, idet):
     return {'Resultado': x_vec, 'Determinante': matrix_det}
 
 
+<<<<<<< HEAD
 a = [[1,0.2,0.4],[0.2,1,0.5],[0.4,0.5,1]]
 b = [0.6, -0.3, -0.6]
 
 print(cholesky_decomposition(pd.DataFrame(a), np.array(b), 1)['Resultado'])
 
 
+=======
+>>>>>>> d554ce7ecbd5ca559864b01a7413365c6dc439f3
 
 
