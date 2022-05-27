@@ -47,16 +47,6 @@ def multilinear_regression(x_coords, y_coords, x):
 
     return { 'Valor estimado': estimated_y }
 
-#print(multilinear_regression(np.array([1.0,2.0,3.0]), np.array([2.0,3.5,6.5]), 5))
-#print(multilinear_regression(np.array([1.0,2.0,4.0]), np.array([1.05,3.22,6.02]), 5))
-
-
-X_Y = pd.read_csv('./pointsa.dat', sep=r'\s{2,}', engine='python', header=None)
-result = multilinear_regression(X_Y[0], X_Y[1], 5.5)
-
-with open('./output.txt', 'w') as f:
-    sys.stdout = f
-    print(result)
 
 
 

@@ -71,8 +71,3 @@ def jacobi_method(a, tol, idet):
 
     return {'Autovalor': lamb, 'Autovetor': x, 'Número de iterações': it, 'Determinante': matrix_det}
 
-matrix_A = pd.read_csv('./mat_A.dat', sep=r'\s{2,}', engine='python', header=None)
-with open('./output.txt', 'w') as f:
-    sys.stdout = f
-    print(jacobi_method(matrix_A, 0.00001, 1))
-

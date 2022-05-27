@@ -66,13 +66,6 @@ def cholesky_decomposition(a, b, idet):
 
     return {'Resultado': np.array(x_vec), 'Determinante': matrix_det}
 
-matrix_A = pd.read_csv('./mat_A.dat', sep=r'\s{2,}', engine='python', header=None)
-vector_B = np.fromfile('./vet_B.dat', sep='\n')
-
-with open('./output.txt', 'w') as f:
-    sys.stdout = f
-    print(cholesky_decomposition(matrix_A, vector_B, 1))
-
 
 
 
