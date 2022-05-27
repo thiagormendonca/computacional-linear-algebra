@@ -4,7 +4,7 @@ import sys
 from lagrange import lagrange
 from multilinear_regression import multilinear_regression
 
-X_Y = pd.read_csv('./task-1/mat_A.dat', sep=r'\s{2,}', engine='python', header=None)
+X_Y = pd.read_csv('./task-3/pointsa.dat', sep=r'\s{2,}', engine='python', header=None)
 
 icod = int(input('ICOD: '))
 x = float(input('x: '))
