@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2518906d-8f16-4f1e-a54c-ff03c1db1450" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-1/cholesky_decomposition.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/cholesky_decomposition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-1/mat_A.dat" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/mat_A.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-1/vet_B.dat" beforeDir="false" afterPath="$PROJECT_DIR$/task-1/vet_B.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-2/jacobi_method.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-2/jacobi_method.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-2/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-3/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-3/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-3/multilinear_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/task-3/multilinear_regression.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +35,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/task-1/cholesky_decomposition.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="29S8dHlewK2EmtZvA1qOSoECUXx" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,6 +46,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Python.cholesky_decomposition">
     <configuration name="cholesky_decomposition" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -58,27 +70,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gauss_seidel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="computacional-linear-algebra" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task-1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/task-1/gauss_seidel.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="jacobi_method" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="computacional-linear-algebra" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -92,6 +83,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/task-2/jacobi_method.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="computacional-linear-algebra" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task-1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/task-1/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -147,8 +159,8 @@
         <item itemvalue="Python.cholesky_decomposition" />
         <item itemvalue="Python.jacobi_method" />
         <item itemvalue="Python.multilinear_regression" />
+        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.gauss_seidel" />
       </list>
     </recent_temporary>
   </component>
@@ -187,6 +199,36 @@
           <url>file://$PROJECT_DIR$/task-1/lu_decomposition.py</url>
           <line>15</line>
           <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/task-3/multilinear_regression.py</url>
+          <line>41</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/task-3/multilinear_regression.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/task-3/multilinear_regression.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/task-1/cholesky_decomposition.py</url>
+          <line>55</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/task-1/cholesky_decomposition.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/task-1/cholesky_decomposition.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

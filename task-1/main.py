@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import sys
 
 from lu_decomposition import lu_decomposition
 from cholesky_decomposition import cholesky_decomposition
@@ -21,4 +22,6 @@ methods = {
     4: lambda: gauss_seidel(matrix_A, vector_B, tolm)
 }
 
-print(methods[icod]())
+with open('./task-1/output.txt', 'w') as f:
+    sys.stdout = f
+    print(methods[icod]())

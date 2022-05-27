@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import sys
 
 from power_method import power_method
 from jacobi_method import jacobi_method
@@ -12,7 +13,9 @@ tolm = float(input('TOLm: '))
 
 methods = {
     1: lambda: power_method(matrix_A, tolm),
-    2: lambda: jacobi_method(matrix_A, tolm),
+    2: lambda: jacobi_method(matrix_A, tolm, idet),
 }
 
-print(methods[icod]())
+with open('./task-2/output.txt', 'w') as f:
+    sys.stdout = f
+    print(methods[icod]())

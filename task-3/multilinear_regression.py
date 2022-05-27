@@ -1,31 +1,7 @@
 import numpy as np
 import math
-
-def input_functions():
-    finish = False
-    functions = []
-
-    print('Select functions to apply in x based on python "math" module')
-    print('For help: https://docs.python.org/3/library/math.html \n')
-
-    while not finish:
-        function = input('Input a function: ')
-
-        if hasattr(math, function):
-            is_parameter = input('Is there any other parameter for the function? Y / N')
-            if is_parameter == 'Y':
-                parameter = input('Select a parameter: \n')
-                function = [function, int(parameter)]
-            functions.append(function)
-        else:
-            print('This is not a valid function')
-            print('For help: https://docs.python.org/3/library/math.html \n')
-
-        is_finish = input('Do you finish? Y / N \n')
-        if is_finish == 'Y':
-            finish = True
-
-    return functions
+import sys
+import pandas as pd
 
 
 def apply_func(x, function):
@@ -41,10 +17,11 @@ def generate_p(x_coords, functions):
     for i in range(len(x_coords)):
         row = []
         for j in range(len(functions)):
-            x = apply_func(x_coords[i], functions[j])
+            x = x_coords[i]
+            for func in functions[j]:
+                x = apply_func(x, func)
             row.append(x)
         p.append(row)
-
     return p
 
 def generate_coefficients(x_coords, y_coords, functions):
@@ -56,16 +33,30 @@ def generate_coefficients(x_coords, y_coords, functions):
     return b
 
 def multilinear_regression(x_coords, y_coords, x):
-    functions = input_functions()
+    functions = [[["pow", 0]], [["pow", -1], "exp"], [["pow", -2]]]
+    #functions = [[["pow", 0]], [["pow", 1]]]
+    #functions = [["exp", ["pow", -1]], ["log"]]
     b = generate_coefficients(x_coords, y_coords, functions)
 
     estimated_y = 0
     for k in range(len(functions)):
-        estimated_y += b[k] * apply_func(x, functions[k])
+        omega = x
+        for func in functions[k]:
+            omega = apply_func(omega, func)
+        estimated_y += b[k] * omega
 
     return { 'Valor estimado': estimated_y }
 
+#print(multilinear_regression(np.array([1.0,2.0,3.0]), np.array([2.0,3.5,6.5]), 5))
+#print(multilinear_regression(np.array([1.0,2.0,4.0]), np.array([1.05,3.22,6.02]), 5))
 
+
+X_Y = pd.read_csv('./pointsa.dat', sep=r'\s{2,}', engine='python', header=None)
+result = multilinear_regression(X_Y[0], X_Y[1], 5.5)
+
+with open('./output.txt', 'w') as f:
+    sys.stdout = f
+    print(result)
 
 
 

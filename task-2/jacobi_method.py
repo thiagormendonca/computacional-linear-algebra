@@ -1,20 +1,20 @@
 import numpy as np
 import pandas as pd
+import sys
 
 
 def iteration(a, x, tol, it = 0):
-    a = pd.DataFrame.to_numpy(a)
     p = generate_p(a)
     a = np.dot(np.matrix.transpose(p), a).dot(p)
     x = np.dot(x, p)
 
     i, j = get_max_indexes(a)
-    r = a[j][i]
+    r = abs(a[j][i])
 
     if (r <= tol):
         return np.array(np.diagonal(a)), pd.DataFrame(x), it
 
-    return iteration(a, tol, x, it + 1)
+    return iteration(a, x, tol, it + 1)
 
 def generate_p(a):
     # Get max indexes
@@ -64,11 +64,15 @@ def jacobi_method(a, tol, idet):
     x0 = np.identity(len(a))
     matrix_det = None
 
-    lamb, x, it = iteration(a, x0, tol)
+    lamb, x, it = iteration(pd.DataFrame.to_numpy(a), x0, tol)
 
     if (idet > 0):
         matrix_det = det(lamb)
 
     return {'Autovalor': lamb, 'Autovetor': x, 'Número de iterações': it, 'Determinante': matrix_det}
 
+matrix_A = pd.read_csv('./mat_A.dat', sep=r'\s{2,}', engine='python', header=None)
+with open('./output.txt', 'w') as f:
+    sys.stdout = f
+    print(jacobi_method(matrix_A, 0.00001, 1))
 
