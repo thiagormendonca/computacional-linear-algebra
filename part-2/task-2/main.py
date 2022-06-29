@@ -6,6 +6,7 @@ from newton import newton
 from polynomial_quadrature import polynomial_quadrature
 from gaussian_quadrature import gaussian_quadrature
 from finite_differences import forward, backward, central
+from richardson_extrapolation import richardson_extrapolation
 
 c = [0, 0, 0, 0]
 
@@ -64,10 +65,18 @@ def finite_differences():
     return methods[method]()
 
 
+def derivative_re():
+    dx1 = float(input('dx1: '))
+    dx2 = float(input('dx2: '))
+    x = float(input('x: '))
+
+    return richardson_extrapolation(x, c, dx1, dx2)
+
 icods = {
     1: lambda: root(),
     2: lambda: integral(),
-    3: lambda: finite_differences()
+    3: lambda: finite_differences(),
+    4: lambda: derivative_re()
 }
 
 print(icods[icod]())
