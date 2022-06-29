@@ -3,6 +3,7 @@ import pandas as pd
 
 from bisection import bisection
 from newton import newton
+from polynomial_quadrature import polynomial_quadrature
 
 c = [0, 0, 0, 0]
 
@@ -29,9 +30,25 @@ def root():
     return methods[method]()
 
 
+def integral():
+    method = int(
+        input('1 - Quadratura Polinomial\n2 - Quadratura de Gauss\nDigite o número do método: '))
+
+    a = 1
+    b = 2
+    numP = 6
+
+    methods = {
+        1: lambda: polynomial_quadrature(a, b, numP, c),
+        2: lambda: None,
+    }
+
+    return methods[method]()
+
+
 icods = {
     1: lambda: root(),
-    2: lambda: None,
+    2: lambda: integral(),
 }
 
 print(icods[icod]())
