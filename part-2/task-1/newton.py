@@ -52,7 +52,7 @@ def newton(x0, tol, niter, teta):
 
         tolk = euclidian_norm(dx) / euclidian_norm(x)
 
-        if (tolk <= tol):
+        if (tolk < tol):
             return {'X': x, 'Iterações': k}
 
         k += 1
