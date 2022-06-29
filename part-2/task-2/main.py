@@ -4,6 +4,7 @@ import pandas as pd
 from bisection import bisection
 from newton import newton
 from polynomial_quadrature import polynomial_quadrature
+from gaussian_quadrature import gaussian_quadrature
 
 c = [0, 0, 0, 0]
 
@@ -40,7 +41,7 @@ def integral():
 
     methods = {
         1: lambda: polynomial_quadrature(a, b, numP, c),
-        2: lambda: None,
+        2: lambda: gaussian_quadrature(a, b, numP, c),
     }
 
     return methods[method]()

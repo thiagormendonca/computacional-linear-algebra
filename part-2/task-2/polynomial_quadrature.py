@@ -179,4 +179,3 @@ def polynomial_quadrature(a, b, numP, c):
 
     return sum
 
-
