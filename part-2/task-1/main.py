@@ -3,6 +3,7 @@ import pandas as pd
 import sys
 
 from newton import newton
+from broyden import broyden
 
 teta = [0, 0]
 
@@ -15,7 +16,7 @@ x0 = np.array([1., 0., 0.])
 
 methods = {
     1: lambda: newton(x0, tolm, 1000, np.array(teta)),
-    2: lambda: None,
+    2: lambda: broyden(x0, tolm, 1000, np.array(teta)),
 }
 
 print(methods[icod]())
