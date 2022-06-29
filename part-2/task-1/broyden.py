@@ -16,7 +16,7 @@ def broyden_jacob(y, j, dx):
 
 
 def broyden(x0, tol, niter, teta):
-    k = 1
+    k = 0
     x = x0
     b = jacob(x0)
 
