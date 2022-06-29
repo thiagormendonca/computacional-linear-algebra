@@ -79,6 +79,6 @@ icods = {
     4: lambda: derivative_re()
 }
 
-with open('./task-2/output.txt', 'w') as f:
+with open('./output.txt', 'w') as f:
     sys.stdout = f
     print(methods[icod]())

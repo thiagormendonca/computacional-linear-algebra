@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import pandas as pd
 
@@ -18,7 +19,7 @@ methods = {
     2: lambda: broyden(x0, tolm, 1000, np.array(teta)),
 }
 
-with open('./task-1/output.txt', 'w') as f:
+with open('./output.txt', 'w') as f:
     sys.stdout = f
     print(methods[icod]())
 
