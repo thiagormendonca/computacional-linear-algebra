@@ -19,7 +19,9 @@ methods = {
     2: lambda: broyden(x0, tolm, 1000, np.array(teta)),
 }
 
+result = methods[icod]()
+print(result)
 with open('./output.txt', 'w') as f:
     sys.stdout = f
-    print(methods[icod]())
+    print(result)
 

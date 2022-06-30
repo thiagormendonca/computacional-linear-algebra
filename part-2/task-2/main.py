@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import pandas as pd
 
@@ -79,6 +80,8 @@ icods = {
     4: lambda: derivative_re()
 }
 
+result = icods[icod]()
+print(result)
 with open('./output.txt', 'w') as f:
     sys.stdout = f
-    print(methods[icod]())
+    print(result)
