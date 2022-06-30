@@ -15,4 +15,6 @@ def bisection(a, b, tol, c):
 
         k += 1
 
+    x = (a + b) / 2.0
+
     return {'X': x, 'Iterações': k}
